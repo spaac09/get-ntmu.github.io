@@ -1,0 +1,9 @@
+<h1 id="pack-title">{{ pack.name }}</h1>
+<span id="pack-basic-info">
+    <span>by</span>
+    <a href="https://github.com/{{ pack.author.username }}">
+        {{ pack.author.display }}
+    </a>
+    <span>-</span>
+    <span>Last updated {{ pack.versions[0].date }}</span>
+</span>

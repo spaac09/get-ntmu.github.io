@@ -40,7 +40,15 @@ let page = {
                     let rdata = {};
                     rdata.name = release.name;
                     rdata.url = release.html_url;
-                    rdata.date = new Date(release.published_at).toLocaleDateString("ja-JP"); // YYYY/MM/DD forever
+                    rdata.date =
+                        new Date(release.published_at).toLocaleDateString(
+                            "ja-JP",
+                            {
+                                year: "numeric",
+                                month: "2-digit",
+                                day: "2-digit"
+                            }
+                        );
                     for (const asset of release.assets)
                     {
                         if (asset.name == "OpenWithEx-setup-x64.exe")
@@ -58,6 +66,26 @@ let page = {
                 template = "packs";
                 let packs = await (await fetch("data/packs.json")).json();
                 data.packs = packs;
+                break;
+            }
+            case "pack":
+            {
+                let id = urlParts[1];
+                if (id === "" || id === undefined)
+                    break;
+
+                let r = await fetch(`data/${id}/pack.json`);
+                if (r.status != 200)
+                    break;
+
+                let json;
+                try
+                {
+                    json = await r.json();
+                } catch (e) { break; }
+
+                data.pack = json;
+                template = "pack";
                 break;
             }
         }

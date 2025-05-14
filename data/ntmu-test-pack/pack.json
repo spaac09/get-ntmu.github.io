@@ -4,9 +4,13 @@
         "username": "aubymori",
         "display": "aubymori"
     },
-    "date": "2025-05-14T14:50:54.157Z",
     "images": [
         "preview.png"
     ],
-    "file": ""
+    "versions": [
+        {
+            "version": "1.0.0",
+            "date": "2025/05/14"
+        }
+    ]
 }
