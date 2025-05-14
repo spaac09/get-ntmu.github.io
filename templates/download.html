@@ -1,0 +1,32 @@
+<h1>Download</h1>
+<p>Below is a list of downloads for NTMU.</p>
+{% if releases %}
+<table cellspacing="0" border="0">
+    <tbody>
+        <tr>
+            <th>Version</th>
+            <th>Date</th>
+            <th>Release notes</th>
+            <th>Downloads</th>
+        </tr>
+        {% for release in releases %}
+        <tr>
+            <td>{{ release.name }}</td>
+            <td>{{ release.date }}</td>
+            <td>
+                <a href="{{ release.url }}">See on GitHub</a>
+            </td>
+            <td>
+                {% if release.download_x64 %}
+                <a href="{{ release.download_x64 }}">x64</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+{% else %}
+<p>Couldn't get the list of releases.</p>
+{% endif %}
+<a href="https://github.com/aubymori/NTMU/releases">See all releases on GitHub</a>
