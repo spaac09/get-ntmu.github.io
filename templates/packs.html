@@ -1,10 +1,45 @@
 <h1>Packs</h1>
-<div id="pack-search">
+<form id="pack-search" onsubmit="event.preventDefault()">
     <input type="text" id="pack-search-input" placeholder="Search for packs...">
     <input type="submit" id="pack-search-submit" value="Search">
-</div>
+</form>
 <div id="packs">
     <div id="filters">
-        <b>Sort by:</b>
+        <div class="filter" data-filter="sort">
+            <b>Sort by:</b>
+            <a href="javascript:void(0)" class="filter-link" data-value="new">
+                Newest to oldest
+            </a>
+            <a href="javascript:void(0)" class="filter-link" data-value="old">
+                Oldest to newest
+            </a>
+            <a href="javascript:void(0)" class="filter-link" data-value="az">
+                Name (A-Z)
+            </a>
+            <a href="javascript:void(0)" class="filter-link" data-value="za">
+                Name (Z-A)
+            </a>
+        </div>
+    </div>
+    <div id="packs-content">
+        {% for pack in packs %}
+        <div class="pack" data-date="{{ pack.date }}">
+            <a href="#!/pack/{{ pack.id }}">
+                <div class="pack-thumb">
+                    <img src="data/{{ pack.id }}/{{ pack.thumb }}">
+                </div>
+            </a>
+            <a href="#!/pack/{{ pack.id }}" class="pack-title">
+                {{ pack.name }}
+            </a>
+            <div class="pack-byline">
+                <span>by</span>
+                <a href="https://github.com/{{ pack.author.username }}">
+                    {{ pack.author.display }}
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+        
     </div>
 </div>

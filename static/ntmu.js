@@ -54,8 +54,12 @@ let page = {
                 break;
             }
             case "packs":
+            {
                 template = "packs";
+                let packs = await (await fetch("data/packs.json")).json();
+                data.packs = packs;
                 break;
+            }
         }
 
         pageContent.innerHTML = nunjucks.render(template + ".html", data);

@@ -70,6 +70,10 @@ a:hover {
     display: flex;
 }
 
+#page-content {
+    width: 100%;
+}
+
 #spinner {
     display: flex;
     align-items: center;
