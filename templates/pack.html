@@ -7,3 +7,37 @@
     <span>-</span>
     <span>Last updated {{ pack.versions[0].date }}</span>
 </span>
+<p>
+    <a href="javascript:void(0)" onclick="document.getElementById('pack-downloads').scrollIntoView()">
+        Jump to downloads
+    </a>
+</p>
+<div id="pack-images">
+    {% for image in pack.images %}
+    <a href="data/{{ pack.id }}/{{ image }}" class="pack-image" target="_blank">
+        <img src="data/{{ pack.id }}/{{ image }}">
+    </a>
+    {% endfor %}
+</div>
+{{ pack.readme|safe }}
+<h2>Downloads</h2>
+<table id="pack-downloads">
+    <tbody>
+        <tr>
+            <th>Version</th>
+            <th>Date</th>
+            <th>Download</th>
+        </tr>
+        {% for version in pack.versions %}
+        <tr>
+            <td>{{ version.version }}</td>
+            <td>{{ version.date }}</td>
+            <td>
+                <a href="data/{{ pack.id }}/{{ pack.id }}-{{ version.version }}.zip">
+                    Download now
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

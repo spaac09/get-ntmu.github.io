@@ -12,6 +12,7 @@ let page = {
         let spinner = document.getElementById("spinner");
 
         pageContent.innerHTML = "";
+        pageContent.hidden = true;
         spinner.hidden = false;
 
         let template = "404";
@@ -85,12 +86,24 @@ let page = {
                 } catch (e) { break; }
 
                 data.pack = json;
+                data.pack.id = id;
+
+                let rr = await fetch(`data/${id}/README.md`);
+                if (rr.status == 200)
+                {
+                    let parser = new commonmark.Parser();
+                    let renderer = new commonmark.HtmlRenderer();
+                    let parsed = parser.parse(await rr.text());
+                    data.pack.readme = renderer.render(parsed);
+                }
+    
                 template = "pack";
                 break;
             }
         }
 
         pageContent.innerHTML = nunjucks.render(template + ".html", data);
+        pageContent.hidden = false;
         spinner.hidden = true;
     },
 

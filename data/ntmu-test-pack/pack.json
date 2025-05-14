@@ -5,12 +5,12 @@
         "display": "aubymori"
     },
     "images": [
-        "preview.png"
+        "thumbnail.png"
     ],
     "versions": [
         {
             "version": "1.0.0",
-            "date": "2025/05/14"
+            "date": "2025/05/13 20:49"
         }
     ]
 }
