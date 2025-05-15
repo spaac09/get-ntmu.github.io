@@ -25,7 +25,7 @@ let page = {
             case "download":
             {
                 template = "download";
-                let r = await fetch("https://api.github.com/repos/aubymori/OpenWithEx/releases"); // debug
+                let r = await fetch("https://api.github.com/repos/aubymori/NTMU/releases");
                 if (r.status != 200)
                     break;
 
@@ -52,9 +52,11 @@ let page = {
                         );
                     for (const asset of release.assets)
                     {
-                        if (asset.name == "OpenWithEx-setup-x64.exe")
+                        switch (asset.name)
                         {
-                            rdata.download_x64 = asset.browser_download_url;
+                            case "NTMU-x64.zip":
+                                rdata.download_x64 = asset.browser_download_url;
+                                break;
                         }
                     }
                     data.releases.push(rdata);

@@ -9,6 +9,11 @@
             <th>Release notes</th>
             <th>Downloads</th>
         </tr>
+        {% if releases|length == 0 %}
+        <tr>
+            <td colspan="4">No releases to display</td>
+        </tr>
+        {% else %}
         {% for release in releases %}
         <tr>
             <td>{{ release.name }}</td>
@@ -23,6 +28,7 @@
             </td>
         </tr>
         {% endfor %}
+        {% endif %}
     </tbody>
 </table>
 <br>
