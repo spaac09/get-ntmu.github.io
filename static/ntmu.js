@@ -107,6 +107,14 @@ let page = {
         pageContent.innerHTML = nunjucks.render(template + ".html", data);
         pageContent.hidden = false;
         spinner.hidden = true;
+
+        switch (urlParts[0])
+        {
+            case "packs":
+                document.querySelector(`.filter-link[data-value="new"]`).classList.add("selected");
+                sort("new");
+                break;
+        }
     },
 
     init()

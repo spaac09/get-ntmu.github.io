@@ -77,8 +77,3 @@ async function waitForElement(query)
         await new Promise (r => requestAnimationFrame(r));
     return document.querySelector(query);
 }
-
-waitForElement(`.filter-link[data-value="new"]`).then(e => {
-    e.classList.add("selected");
-    sort("new");
-})

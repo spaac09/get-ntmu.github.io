@@ -14,7 +14,7 @@
 }
 
 #filters {
-    width: 200px;
+    width: 175px;
 }
 
 .filter {
@@ -30,7 +30,7 @@
 
 #packs-content {
     display: grid;
-    grid-template-columns: 152px 152px 152px 152px;
+    grid-template-columns: 156px 156px 156px 156px;
 }
 
 .pack {
