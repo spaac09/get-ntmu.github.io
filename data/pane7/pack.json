@@ -1,0 +1,13 @@
+{
+    "name": "Pane7",
+    "author": {
+        "username": "kfh83",
+        "display": "kfh83"
+    },
+    "images": [
+        "thumbnail.png"
+    ],
+    "versions": [
+        { "version": "1.0.0", "date": "2025/05/15 13:10" }
+    ]
+}
