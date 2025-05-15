@@ -25,7 +25,7 @@ let page = {
             case "download":
             {
                 template = "download";
-                let r = await fetch("https://api.github.com/repos/aubymori/NTMU/releases");
+                let r = await fetch(`https://api.github.com/repos/aubymori/NTMU/releases?t=${Date.now()}`);
                 if (r.status != 200)
                     break;
 
@@ -67,7 +67,7 @@ let page = {
             case "packs":
             {
                 template = "packs";
-                let packs = await (await fetch("data/packs.json")).json();
+                let packs = await (await fetch(`data/packs.json?t=${Date.now()}`)).json();
                 data.packs = packs;
                 break;
             }
@@ -77,7 +77,7 @@ let page = {
                 if (id === "" || id === undefined)
                     break;
 
-                let r = await fetch(`data/${id}/pack.json`);
+                let r = await fetch(`data/${id}/pack.json?t=${Date.now()}`);
                 if (r.status != 200)
                     break;
 
@@ -90,7 +90,7 @@ let page = {
                 data.pack = json;
                 data.pack.id = id;
 
-                let rr = await fetch(`data/${id}/README.md`);
+                let rr = await fetch(`data/${id}/README.md?t=${Date.now()}`);
                 if (rr.status == 200)
                 {
                     let parser = new commonmark.Parser();
