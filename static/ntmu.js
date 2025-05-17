@@ -25,7 +25,7 @@ let page = {
             case "download":
             {
                 template = "download";
-                let r = await fetch(`https://api.github.com/repos/aubymori/NTMU/releases?t=${Date.now()}`);
+                let r = await fetch(`https://api.github.com/repos/get-ntmu/NTMU/releases?t=${Date.now()}`);
                 if (r.status != 200)
                     break;
 
