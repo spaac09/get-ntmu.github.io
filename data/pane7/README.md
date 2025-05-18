@@ -9,6 +9,10 @@ DESCRIPTION: This pack includes general resources from Windows 7, for Windows 10
 
 NOTE: When done applying, head up top on the "Tools" menu, select "Clear Icon Cache", and preferably reboot your machine to see all the changes.
 
+CHANGES FROM 1.2.5 **(Thanks, ImSwordQueen)**:
+- Added 7 Device Manager
+- Fixed disabled up icon in Explorer
+
 CHANGES FROM 1.2:
 - Ported to NTMU from 7TSP
 - Touch-ups to shell32.dll.mui
