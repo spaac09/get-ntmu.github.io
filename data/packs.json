@@ -43,5 +43,14 @@
             "display": "OrthodoxWin32"
         },
         "date": "2025/05/18 17:46"
+    },
+    {
+        "id": "win7-ribbon",
+        "name": "Windows 7 Ribbon",
+        "author": {
+            "username": "aubymori",
+            "display": "aubymori"
+        },
+        "date": "2025/05/18 15:08"
     }
 ]
