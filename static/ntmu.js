@@ -1,3 +1,20 @@
+const DATESTR_LOCALE = "ja-JP"; // YYYY/MM/DD
+const DATESTR_CONFIG = {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "numeric",
+    minute: "numeric"
+};
+
+function dateStrFromUTC(dateStr)
+{
+    let date = new Date(dateStr + " UTC");
+    let config = DATESTR_CONFIG;
+    config.timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    return date.toLocaleString(DATESTR_LOCALE, config);
+}
+
 let page = {
     onHashChange()
     {
@@ -43,12 +60,8 @@ let page = {
                     rdata.url = release.html_url;
                     rdata.date =
                         new Date(release.published_at).toLocaleDateString(
-                            "ja-JP",
-                            {
-                                year: "numeric",
-                                month: "2-digit",
-                                day: "2-digit"
-                            }
+                            DATESTR_LOCALE,
+                            DATESTR_CONFIG
                         );
                     for (const asset of release.assets)
                     {
@@ -68,6 +81,10 @@ let page = {
             {
                 template = "packs";
                 let packs = await (await fetch(`data/packs.json?t=${Date.now()}`)).json();
+                for (let pack of packs)
+                {
+                    pack.date = dateStrFromUTC(pack.date);
+                }
                 data.packs = packs;
                 break;
             }
@@ -97,6 +114,11 @@ let page = {
                     let renderer = new commonmark.HtmlRenderer();
                     let parsed = parser.parse(await rr.text());
                     data.pack.readme = renderer.render(parsed);
+                }
+
+                for (let version of data.pack.versions)
+                {
+                    version.date = dateStrFromUTC(version.date);
                 }
     
                 template = "pack";
