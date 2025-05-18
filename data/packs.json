@@ -1,5 +1,14 @@
 [
     {
+        "id": "classicuac",
+        "name": "Classic UAC",
+        "author": {
+            "username": "travy-patty",
+            "display": "Travis"
+        },
+        "date": "2025/05/18 10:15"
+    },
+    {
         "id": "gameux",
         "name": "Games Explorer",
         "author": {
