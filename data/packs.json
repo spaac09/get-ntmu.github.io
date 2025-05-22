@@ -63,6 +63,15 @@
         "date": "2025/05/18 20:51"
     },
     {
+        "id": "panexp",
+        "name": "PaneXP Resource pack",
+        "author": {
+            "username": "kfh83",
+            "display": "kfh83"
+        },
+        "date": "2025/05/22 11:42"
+    },
+    {
         "id": "briefcase",
         "name": "Briefcase",
         "author": {
