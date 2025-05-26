@@ -1,0 +1,13 @@
+{
+    "name": "Win7 Help And Support",
+    "author": {
+        "username": "ImSwordQueen",
+        "display": "ImSwordQueen"
+    },
+    "images": [
+        "thumbnail.png"
+    ],
+    "versions": [
+        { "version": "1.0.0", "date": "2025/05/26 01:00" }
+    ]
+}
