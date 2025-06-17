@@ -1,6 +1,0 @@
-Windows Registry Editor Version 5.00
-
-;Disable folder thumbnails without disabling thumbnail view for files
-
-[HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell]
-"Logo"="None"
