@@ -5,7 +5,7 @@
         "display": "realerico"
     },
     "images": [
-        "preview.png"
+        "thumbnail.png"
     ],
     "versions": [
         { "version": "1.0.0", "date": "2025/06/16 15:06" }
