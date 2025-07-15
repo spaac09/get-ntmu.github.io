@@ -80,7 +80,25 @@ let page = {
             case "packs":
             {
                 template = "packs";
-                let packs = await (await fetch(`data/packs.json?t=${Date.now()}`)).json();
+                let r = await fetch(`data/packs.yml?t=${Date.now()}`);
+                if (r.status != 200)
+                {
+                    template = "error";
+                    data.message = `Data request for packs list failed with status ${r.status}.`;
+                    break;
+                }
+                let packsText = await r.text();
+                let packs;
+                try
+                {
+                    packs = jsyaml.load(packsText);
+                }
+                catch (e)
+                {
+                    template = "error";
+                    data.message = "Failed to parse data for the packs list";
+                    break;
+                }
                 for (let pack of packs)
                 {
                     pack.date = dateStrFromUTC(pack.date);
@@ -94,17 +112,31 @@ let page = {
                 if (id === "" || id === undefined)
                     break;
 
-                let r = await fetch(`data/${id}/pack.json?t=${Date.now()}`);
+                let r = await fetch(`data/${id}/pack.yml?t=${Date.now()}`);
                 if (r.status != 200)
+                {
+                    if (r.status == 404)
+                    {
+                        template = "404";
+                        break;
+                    }
+                    template = "error";
+                    data.message = `Data request for pack ${id} failed with status ${r.status}`;
                     break;
+                }
 
-                let json;
+                let packData;
                 try
                 {
-                    json = await r.json();
-                } catch (e) { break; }
+                    let text = await r.text();
+                    packData = jsyaml.load(text);
+                } catch (e)
+                {
+                    template = "error";
+                    data.message = `Failed to parse data for pack ${id}`;
+                }
 
-                data.pack = json;
+                data.pack = packData;
                 data.pack.id = id;
 
                 let rr = await fetch(`data/${id}/README.md?t=${Date.now()}`);
