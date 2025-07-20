@@ -1,6 +1,6 @@
 **ORIGINAL RESOURCES: aubymori**
 
-**NTMU ADAPTATION: travis (travy-patty)**
+**NTMU ADAPTATION: travis (travy-patty), ImSwordQueen**
 
 
 DESCRIPTION: This pack restores the classic DirectUI User Account Control GUI
